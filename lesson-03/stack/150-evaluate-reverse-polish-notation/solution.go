@@ -12,6 +12,9 @@ import "strconv"
 	If we meet a operator,  we will get two number from stack and calculate result. T
 	Then we add result to stack
 	Finally we have one left in our stack. This is our result.
+
+	Time Complexity: O(n)
+	Space Complexity: O(n)
 */
 
 func evalRPN(tokens []string) int {
