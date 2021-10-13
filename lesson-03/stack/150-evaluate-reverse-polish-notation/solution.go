@@ -6,6 +6,14 @@ import "strconv"
 	leetcode: https://leetcode.com/problems/evaluate-reverse-polish-notation/
 */
 
+/*
+	RPN format : number number operator -> result = number operator number
+	We use stack DS. Iterate the array and push number to stack.
+	If we meet a operator,  we will get two number from stack and calculate result. T
+	Then we add result to stack
+	Finally we have one left in our stack. This is our result.
+*/
+
 func evalRPN(tokens []string) int {
 	operatorFns := map[string]func(a, b int) int{
 		"+": func(a, b int) int { return a + b },
