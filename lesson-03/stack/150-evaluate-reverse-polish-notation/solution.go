@@ -1,6 +1,8 @@
 package solution
 
-import "strconv"
+import (
+	"strconv"
+)
 
 /*
 	leetcode: https://leetcode.com/problems/evaluate-reverse-polish-notation/
@@ -15,6 +17,8 @@ import "strconv"
 
 	Time Complexity: O(n)
 	Space Complexity: O(n)
+
+	Note: check the order of numbers when doing operator
 */
 
 func evalRPN(tokens []string) int {
