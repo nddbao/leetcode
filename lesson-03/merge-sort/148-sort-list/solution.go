@@ -9,6 +9,9 @@ package solution
 	For dividing into 2 sublist: we will find middle node and split list based on this.
 	For merging two 2 sorted list l1, l2: compare l1 and l2 value. Choose smaller one and
 	update it to our new list. Keep moving until list 1 or list 2 don't have any node.
+
+	Time complexity: O(nlogn) (find middle O(n) and merge O(nlogn)
+	Space complexity: O(1) without counting for call stack
 */
 
 /**
