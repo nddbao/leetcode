@@ -10,6 +10,9 @@ package solution
 	If len of string is even and don't have any odd : string can PermutePalindrome
 	if len of string is odd and have only one odd: string can still PermutePalindrome
 	Otherwise, string cannot PermutePalindrome
+
+	Time complexity: O(n)
+	Space complexity: O(1)
 */
 
 func canPermutePalindrome(s string) bool {
