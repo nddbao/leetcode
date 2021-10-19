@@ -4,6 +4,14 @@ package solution
 	leetcode: https://leetcode.com/problems/palindrome-permutation/
 */
 
+/*
+	We will count frequency of each character in string.
+	After that, we check how many character have frequency is odd.
+	If len of string is even and don't have any odd : string can PermutePalindrome
+	if len of string is odd and have only one odd: string can still PermutePalindrome
+	Otherwise, string cannot PermutePalindrome
+*/
+
 func canPermutePalindrome(s string) bool {
 	var charArray [26]int
 
