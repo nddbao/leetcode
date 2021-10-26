@@ -1,5 +1,19 @@
 package solution
 
+/*
+	leetcode: https://leetcode.com/problems/subarray-sums-divisible-by-k/
+*/
+
+/*
+	We do preSum of array and then count frequency of preSum  when mod k.
+	We have:
+		val =(a%k + r) - (b%k + r)
+	-> val will be divisible by k
+	To find the answer, we will sum up all frequency.
+
+	We also remember to add freq[0] .
+
+*/
 func subarraysDivByK(nums []int, k int) int {
 	freq := make([]int, k)
 	for i := 0; i < len(nums); i++ {
