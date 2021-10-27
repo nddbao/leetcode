@@ -4,6 +4,23 @@ package solution
 	leetcode: https://leetcode.com/problems/house-robber-iii/
 */
 
+/*
+ We know that there are two choices at each node for robbing or not robbing
+ If node is robbed means upper or lower node is not robbed.
+ We use dfs to travel from the root.
+ At each node:
+ + if robbing, we visit its left and right without robbing
+ + if not robbing, we will have 4 combination to visit its left and right child
+    (left-rob,right-rob), (left-rob,right-not rob), (left-not rob,right-rob), (left-not rob,right-not rob)
+
+  We also use cache to memorize for pair (node, rob or not rot) to speed up.
+
+    Time complexity: O(n)
+    Space complexity: O(n + h)
+
+    TODO: find another way to improve space complexity
+*/
+
 /**
  * Definition for a binary tree node.
  * type TreeNode struct {
