@@ -4,6 +4,11 @@ package solution
 	leetcode: https://leetcode.com/problems/word-ladder/
 */
 
+/*
+	TODO: improve by building adjacent based on pattern.
+	For example: hot -> *ot, h*t, ho*
+*/
+
 func ladderLength(beginWord string, endWord string, wordList []string) int {
 	var endIdx int
 	if idx := findInWordList(wordList, endWord); idx >= 0 {
