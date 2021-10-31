@@ -4,6 +4,23 @@ package solution
 	leetcode: https://leetcode.com/problems/minimum-genetic-mutation/
 */
 
+/*
+	We can convert this problem into graph whether each node is a gene string.
+	For two nodes, they will connect to each other if they are different from each other
+	by one single character.
+	We build connected array and then use bfs to travel graph level by level.
+	It will begin at START until reaching END.  We just return level.
+	If we cannot reach END. We know that there is no way path from START to END. Just return -1.
+
+	Time complexity:
+		bfs: O(n)
+		pushToBank: O(n)
+		buildConnected: O(8* n^2) -> O(n^2)
+	==>  O(n^2)
+	Space complexity: O(n + n^2) => O(n^2)
+
+*/
+
 func minMutation(start string, end string, bank []string) int {
 	if start == end {
 		return 0
