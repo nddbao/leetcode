@@ -4,6 +4,19 @@ package solution
 	leetcode: https://leetcode.com/problems/shortest-path-in-binary-matrix/
 */
 
+/*
+	We can use brute force to check all combination path and find shortest path.
+	But it's not efficient.
+	We can convert this problem to graph problem using bfs to find shortest path from node A to node B.
+	 + Each node will be a cell.
+	 + Node X connect to node Y if Y is next X in 8-directionally direction and its value is 0.
+
+	Time complexity: O(n^2)
+	Space complexity: O(n^2)
+
+	Note: check edge cases and level
+*/
+
 func shortestPathBinaryMatrix(grid [][]int) int {
 	n := len(grid)
 	if n == 1 && grid[0][0] == 0 {
