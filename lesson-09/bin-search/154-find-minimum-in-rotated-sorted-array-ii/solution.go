@@ -1,5 +1,12 @@
 package solution
 
+/*
+	leetcode: https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/
+*/
+
+/*
+	TODO: clean code
+*/
 func findMin(nums []int) int {
 	l, h := initLowAndHigh(nums)
 	if l > h {
