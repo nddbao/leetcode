@@ -4,27 +4,28 @@ package solution
 	leetcode: https://leetcode.com/problems/path-with-maximum-minimum-value/
 */
 
-/*
-	Note: remember to check grid[0][0] >= mid
-*/
 func maximumMinimumPath(grid [][]int) int {
 	m, n := len(grid), len(grid[0])
-	l, h := 0, int(10e9)
-	result := 0
+	l, h := 0, int(10e9)+1
+
 	for l < h {
 		mid := l + (h-l)/2
 		visited := initVisited(m, n)
-		if grid[0][0] >= mid && dfs(grid, visited, mid, 0, 0) {
-			result = mid
-			l = mid + 1
-		} else {
+		if !dfs(grid, visited, mid, 0, 0) {
 			h = mid
+		} else {
+			l = mid + 1
 		}
 	}
-	return result
+	return h - 1
 }
 
 func dfs(grid [][]int, visited [][]bool, target, i, j int) bool {
+	// continue if each cell always greater or equal to target
+	if grid[i][j] < target {
+		return false
+	}
+
 	visited[i][j] = true
 
 	if isEnd(grid, i, j) {
@@ -38,7 +39,7 @@ func dfs(grid [][]int, visited [][]bool, target, i, j int) bool {
 			continue
 		}
 
-		if grid[x][y] >= target && dfs(grid, visited, target, x, y) {
+		if dfs(grid, visited, target, x, y) {
 			return true
 		}
 	}
