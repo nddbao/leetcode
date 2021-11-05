@@ -25,14 +25,14 @@ func deleteNode(root *TreeNode, key int) *TreeNode {
 	}
 
 	node := getNode(parent, side)
-	for !isLeaf(node) {
+	for {
 		if node.Right == nil || node.Left == nil {
 			child := node.Right
 			if node.Left != nil {
 				child = node.Left
 			}
 			setChild(parent, child, side)
-			return dumb.Left
+			break
 		}
 
 		parent, side = parentOfMin(node, node.Right, SideRight)
@@ -40,8 +40,6 @@ func deleteNode(root *TreeNode, key int) *TreeNode {
 		node.Val, tmp.Val = tmp.Val, node.Val
 		node = tmp
 	}
-
-	deleteLeaf(parent, side)
 
 	return dumb.Left
 }
@@ -54,24 +52,12 @@ func setChild(parent, node *TreeNode, side int) {
 	}
 }
 
-func isLeaf(node *TreeNode) bool {
-	return node.Left == nil && node.Right == nil
-}
-
 func parentOfMin(parent, node *TreeNode, side int) (*TreeNode, int) {
 	for node.Left != nil {
 		parent, node = node, node.Left
 		side = SideLeft
 	}
 	return parent, side
-}
-
-func deleteLeaf(node *TreeNode, side int) {
-	if side == SideLeft {
-		node.Left = nil
-	} else {
-		node.Right = nil
-	}
 }
 
 const (
