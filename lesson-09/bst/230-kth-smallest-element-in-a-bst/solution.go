@@ -4,6 +4,13 @@ package solution
 	leetcode: https://leetcode.com/problems/kth-smallest-element-in-a-bst/
 */
 
+/*
+	We go through BST using inorder travel and count number until we reach k-th number.
+
+	Time complexity: O(N + K) -> O(N)
+	Space complexity: O(log(N))
+*/
+
 type TreeNode struct {
 	Val   int
 	Left  *TreeNode
