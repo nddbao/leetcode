@@ -4,6 +4,17 @@ package solution
 	leetcode: https://leetcode.com/problems/max-consecutive-ones/
 */
 
+/*
+	We use two pointers (left, right) to keep track range [1...1]
+	Iterating through array and check value element.
+	If current value is 1 -> set left if not set yet and update max.
+	Otherwise, just reset left value.
+
+	Time Complexity: O(n)
+	Space Complexity: O(n)
+
+*/
+
 func findMaxConsecutiveOnes(nums []int) int {
 	var max int
 
