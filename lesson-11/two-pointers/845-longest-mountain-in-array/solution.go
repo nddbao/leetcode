@@ -41,7 +41,7 @@ func longestMountain(arr []int) int {
 		}
 
 		// check still valid mountain or not
-		if i+1 < len(arr)-1 && arr[i] == arr[i+1] {
+		if i+1 <= len(arr)-1 && arr[i] == arr[i+1] {
 			leftIdx = -1
 		}
 	} // end loop
