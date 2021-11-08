@@ -6,6 +6,23 @@ import "sort"
 	leetcode: https://leetcode.com/problems/3sum
 */
 
+/*
+	Our triplets are unique. So we can sort our array.
+	Use three nested loops to find triplet.
+	We also need to check and ignore value that we already check.
+	But time complexity: O(n^3)
+
+	For improving this, we can use only two nested loop.
+	First loop, picking  1st number. We know that finding 2nd and 3rd number is 2-sum problem.
+	So just using two pointer to solve that.
+
+	Time Complexity:
+		sort.Ints -> O(nlogn)
+        One loop for first item + one loop for 2-sum: n^2
+		=> O(nlogn + n^2) => O(n^2)
+	Space Complexity: O(1)
+*/
+
 func threeSum(nums []int) [][]int {
 	n := len(nums)
 	if n < 3 {
