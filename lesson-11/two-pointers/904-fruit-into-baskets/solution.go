@@ -4,6 +4,18 @@ package solution
 	leetcode: https://leetcode.com/problems/fruit-into-baskets/
 */
 
+/*
+	We move from beginning of the array. We will two pointer (left, right) to keep tracking a window.
+	That window has to be satisfied condition: number of fruit types in range is not greater than 2.
+
+    When moving to next element:
+		if not satisfied condition, just shifting left pointer ahead util condition is true.
+		We also calculate len of window and update max result.
+
+	Time complexity: O(n)
+	Space complexity: O(3) -> O(1)
+*/
+
 func totalFruit(fruits []int) int {
 	freq := make(map[int]int)
 	var max, left int
