@@ -22,23 +22,19 @@ func threeSum(nums []int) [][]int {
 
 		l, r := i+1, n-1
 		for l < r {
+			sum := nums[i] + nums[l] + nums[r]
+			if sum == 0 {
+				result = append(result, []int{nums[i], nums[l], nums[r]})
+				l++
+				r--
+			} else if sum < 0 {
+				l++
+			} else if sum > 0 {
+				r--
+			}
+
 			l = getLeft(nums, i, l, r)
 			r = getRight(nums, i, l, r)
-			if l == r {
-				break
-			}
-
-			sum := nums[i] + nums[l] + nums[r]
-			if sum < 0 {
-				l = l + 1
-				continue
-			} else if sum > 0 {
-				r = r - 1
-				continue
-			}
-
-			result = append(result, []int{nums[i], nums[l], nums[r]})
-			l, r = l+1, r-1
 		} // end loop
 	} // end loop
 
