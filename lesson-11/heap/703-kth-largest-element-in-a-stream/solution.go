@@ -6,6 +6,14 @@ import "container/heap"
 	leetcode: https://leetcode.com/problems/kth-largest-element-in-a-stream/
 */
 
+/*
+	Use a min Heap. Keep pushing new element and popping, but always make sure heap has size: k.
+	We know that the element when pop from heap is always k-th largest
+
+	Time complexity:
+		Add -> log(k)
+	Space complexity: O(k)
+*/
 type KthLargest struct {
 	h *IntHeap
 	k int
