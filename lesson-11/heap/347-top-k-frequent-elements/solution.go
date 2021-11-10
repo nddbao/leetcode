@@ -7,19 +7,8 @@ import "container/heap"
 */
 
 func topKFrequent(nums []int, k int) []int {
-	distincts := make(map[int]int)
-	for _, v := range nums {
-		distincts[v]++
-	}
-
-	a := make([][2]int, 0)
-	h := NewHeap(a)
-	for key, value := range distincts {
-		heap.Push(h, [2]int{key, value})
-		if h.Len() > k {
-			heap.Pop(h)
-		}
-	}
+	freqs := countFrequencies(nums)
+	h := buildMinHeap(freqs, k)
 
 	result := make([]int, k)
 	for i := 0; i < k; i++ {
@@ -27,6 +16,26 @@ func topKFrequent(nums []int, k int) []int {
 		result[i] = v[0]
 	}
 	return result
+}
+
+func buildMinHeap(freqs map[int]int, k int) *ItemHeap {
+	a := make([][2]int, 0)
+	h := NewHeap(a)
+	for key, value := range freqs {
+		heap.Push(h, [2]int{key, value})
+		if h.Len() > k {
+			heap.Pop(h)
+		}
+	}
+	return h
+}
+
+func countFrequencies(nums []int) map[int]int {
+	freqs := make(map[int]int)
+	for _, v := range nums {
+		freqs[v]++
+	}
+	return freqs
 }
 
 func NewHeap(a [][2]int) *ItemHeap {
