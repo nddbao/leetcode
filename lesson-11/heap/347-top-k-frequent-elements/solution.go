@@ -6,6 +6,23 @@ import "container/heap"
 	leetcode: https://leetcode.com/problems/top-k-frequent-elements/
 */
 
+/*
+	We need to know frequency of each number.
+	So we to check all of elements in array. Then storing them to a map.
+
+	We go through this map and build a min heap have at maximum at k elements.
+	Every iteration, we add an item{key=index, value=freq} to min heap.
+	If len(heap) > k, we just pop an item out of heap.
+
+	Finally, we have k largest frequency items.
+
+	Time complexity: O(nlogk)
+		+ countFrequencies -> O(n)
+		+ buildMinHeap -> O(nlogk)
+		+ get resutl: O(klogk)
+
+	Space complexity: O(n+k)
+*/
 func topKFrequent(nums []int, k int) []int {
 	freqs := countFrequencies(nums)
 	h := buildMinHeap(freqs, k)
