@@ -6,6 +6,17 @@ import "container/heap"
 	leetcode: https://leetcode.com/problems/kth-largest-element-in-an-array/
 */
 
+/*
+	We use init a max heap based on current array.
+	Then we pop out element of heap for K times.
+	Last item is our result.
+
+	Time complexity: O(n + klogn)
+		+ init heap: O(n)
+		+ get k-th largest: O(klogN)
+
+    Space complexity: O(1)
+*/
 func findKthLargest(nums []int, k int) int {
 	h := NewIntHeap(nums)
 	heap.Init(h)
