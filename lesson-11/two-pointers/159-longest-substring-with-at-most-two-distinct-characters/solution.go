@@ -4,6 +4,12 @@ package solution
 	leetcode: https://leetcode.com/problems/longest-substring-with-at-most-two-distinct-characters/
 */
 
+/*
+	Similar to 340
+
+	Time complexity: O(n)
+	Space complexity: O(256) -> O(1)
+*/
 func lengthOfLongestSubstringTwoDistinct(s string) int {
 	freq := NewFrequencies()
 
