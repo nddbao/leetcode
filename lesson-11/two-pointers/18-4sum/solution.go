@@ -6,6 +6,18 @@ import "sort"
 	leetcode: https://leetcode.com/problems/4sum/
 */
 
+/*
+	For detecting duplication easier, we sort array.
+	Then we use two outside loops to pick 1st and 2nd number.
+	For last two numbers, we apply two-sum problem with one loop.
+
+	Time complexity: O(n^3)
+		Sort: O(nlogn)
+		Three nested loops: O(n^3)
+
+	Space complexity: O(1) or O(n) (depend on sort algorithm)
+*/
+
 func fourSum(nums []int, target int) [][]int {
 	n := len(nums)
 	if n < 4 {
