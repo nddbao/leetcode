@@ -11,7 +11,7 @@ package solution
 	Otherwise, just reset left value.
 
 	Time Complexity: O(n)
-	Space Complexity: O(n)
+	Space Complexity: O(1)
 
 */
 
