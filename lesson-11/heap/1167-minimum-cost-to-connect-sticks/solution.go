@@ -6,6 +6,15 @@ import "container/heap"
 	leetcode: https://leetcode.com/problems/minimum-cost-to-connect-sticks/
 */
 
+/*
+	If we want to have minimum cost, each time we should connect two sticks that have minimum length.
+	So we will min Heap in this problems. First, we init Heap based on input array.
+	Then we do loop: pop 2 items from heap, calculate it and push result back to heap
+	Until we have only one element left in heap.
+
+	Time complexity: O(n) + O(logn) => O(n)
+	Space complexity: O(1)
+*/
 func connectSticks(sticks []int) int {
 	h := NewHeap(sticks)
 
