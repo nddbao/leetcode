@@ -4,6 +4,16 @@ package solution
 	leetcode: https://leetcode.com/problems/longest-well-performing-interval/
 */
 
+/*
+	We will check longest WPI from n to 1 util we get one.
+	For checking WPI with k len:
+		+ we use sliding window with k len
+		+ Move from start of array util we cannot move
+		+ If on the way, we found a window satisfied -> just return true.
+
+	Time complexity: O(n^2)
+	Space complexity: O(1)
+*/
 func longestWPI(hours []int) int {
 	n := len(hours)
 	for i := n; i >= 1; i-- {
