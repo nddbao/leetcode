@@ -3,6 +3,23 @@ package solution
 /*
 	leetcode: https://leetcode.com/problems/subarrays-with-k-different-integers/
 */
+
+/*
+	We will use:
+		+ two pointer L and R to keep track range that has  K distinct.
+		+ checker object to let us know current distinct.
+
+	Iterate all of element in the array and count current value.
+	    + If current distinct less than k, we will do nothing, move for next round.
+		+ Otherwise, just update L pointer to keep rang [L....R] has k distinct.
+          Then we count subArray.
+
+	Time complexity: O(n^2)
+		Outerloop -> O(n)
+			CountSubArray -> O(n)
+	Space complexity: O(n)
+*/
+
 func subarraysWithKDistinct(nums []int, k int) int {
 	var count int
 	checker := NewChecker()
