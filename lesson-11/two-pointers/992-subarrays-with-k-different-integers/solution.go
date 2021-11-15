@@ -86,3 +86,7 @@ func (c *Checker) Remove(key int) {
 func (c *Checker) DistinctNumbers() int {
 	return c.distinct
 }
+
+func (c *Checker) GetCount(key int) int {
+	return c.arr[key]
+}
