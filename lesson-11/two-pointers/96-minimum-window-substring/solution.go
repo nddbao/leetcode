@@ -13,9 +13,9 @@ package solution
 	For building checker, we have map that contains occurrences for each char in t string.
 	We also need a counter for checking sub range [L..R] have enough character not.
 
-  Time complexity: O(m+n)
-		Init Checker O(m)
-		Find Min O(n)
+  Time complexity: O(m+n) whether m = len(s), n = len(t)
+		Init Checker O(n)
+		Find Min O(m)
   Space complexity: O(256)
 */
 
