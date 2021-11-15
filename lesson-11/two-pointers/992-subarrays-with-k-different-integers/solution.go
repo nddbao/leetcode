@@ -18,6 +18,8 @@ package solution
 		Outerloop -> O(n)
 			CountSubArray -> O(n)
 	Space complexity: O(n)
+
+	TODO: optimize with O(n)
 */
 
 func subarraysWithKDistinct(nums []int, k int) int {
