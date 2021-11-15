@@ -1,6 +1,25 @@
 package solution
 
 /*
+	Suppose that we have a checker to count character and remove it.
+	It also support for checking current range [L..R] is sub window or not.
+
+   Based on this checker, we use two pointers L and R to keep track our range.
+   For each iteration,
+		+ increasing R and add s[R] to checker.
+		+ if current sub range [L..R] is qualified, we will update our Min Range.
+          Remove s[L] from checker as well as increasing L until [L..R] not qualified
+
+	For building checker, we have map that contains occurrences for each char in t string.
+	We also need a counter for checking sub range [L..R] have enough character not.
+
+  Time complexity: O(m+n)
+		Init Checker O(m)
+		Find Min O(n)
+  Space complexity: O(256)
+*/
+
+/*
 	leetcode: https://leetcode.com/problems/minimum-window-substring/
 */
 func minWindow(s string, t string) string {
