@@ -13,6 +13,7 @@ package solution
 
 	Time complexity: O(n^2)
 	Space complexity: O(1)
+	TODO: improve time complexity
 */
 func longestWPI(hours []int) int {
 	n := len(hours)
