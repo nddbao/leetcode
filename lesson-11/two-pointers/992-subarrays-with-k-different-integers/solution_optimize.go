@@ -12,6 +12,8 @@ package solution
 
 	Time complexity: O(n)
 	Space complexity: O(n)
+
+	// TODO try another way
 */
 func subarraysWithKDistinctOptimize(nums []int, k int) int {
 	var count, prefix int
