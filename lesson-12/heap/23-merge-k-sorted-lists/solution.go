@@ -6,6 +6,20 @@ import "container/heap"
 	leetcode: https://leetcode.com/problems/merge-k-sorted-lists/
 */
 
+/*
+		We use min heap and build from first element of each list node.
+	We are sure that we will always have smallest element in heap.
+
+		Using a loop to get smallest element x in heap and add to result list.
+    On the other hand, we check next element of x and push to heap.
+
+	Time complexity: O(NlogK) whether N is total nodes, K is len of array ListNode
+		buildHeap: O(K)
+		build sort list: O(NlogK)
+
+	Space complexity: O(N + K)
+*/
+
 func mergeKLists(lists []*ListNode) *ListNode {
 	dump := &ListNode{}
 	curr := dump
