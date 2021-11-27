@@ -6,6 +6,25 @@ import "container/heap"
 	leetcode: https://leetcode.com/problems/find-median-from-data-stream/
 */
 
+/*
+	We use to two heaps:
+		+ max heap: stores smaller numbers
+		+ min heap: stores larger numbers
+	When a number is added to median finder,
+	 => we have to make sure that len(maxHeap) - len(minHeap) in [0, 1]
+
+	When findMedian:
+		+ If len(maxHeap) - len(minHeap) = 0, we know that total number is even
+			=> we have calculate average from peek of maxHeap and minHeap
+		+ If len(maxHeap) - len(minHeap) = 1, we know that total number is old
+			=> we only return peek of maxHeap
+
+	Time complexity:
+		AddNum: O(logN)
+		FindMedian: O(1)
+	Space complexity: O(N)
+
+*/
 type MedianFinder struct {
 	maxHeap *MyHeap
 	minHeap *MyHeap
