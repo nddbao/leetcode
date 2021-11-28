@@ -9,6 +9,22 @@ import (
 	leetcode: https://leetcode.com/problems/network-delay-time/
 */
 
+/*
+	We use dijkstra to solve this problem.
+	First, we go from node K and update cost for nodes that node K can connected to.
+	Then we choose next node that has min cost and do the same as node K.
+	We will stop when we cannot choose any.
+
+	Time complexity:
+		NewNodeTable: O(N + E) whether N is number of node, E is number of edges
+		Loop: O(N^2)
+			+ Outside: O(N)
+			+ GetMinNode: O(ElogE)
+			+ Inside: O(N)
+
+	Space complexity: O(N + E)
+
+*/
 func networkDelayTime(times [][]int, n int, k int) int {
 	table := NewNodeTable(times, n, k)
 	h := NewMinHeap(&Node{Val: k, Cost: 0})
