@@ -6,6 +6,26 @@ import "container/heap"
 	leetcode: https://leetcode.com/problems/path-with-maximum-probability/
 */
 
+/*
+	We use dijkstra to solve this problem.
+
+	We go from start and check all connected node.
+	After that we update cost if that cost > current cost of this node.
+
+	We pick next largest one and continue
+	until we reach end node or we have visited all of nodes.
+
+
+	Time complexity: O(N*E*LogE)
+		NewCost: O(N)E
+		NewEdges: O(E)
+		Outside loop: O(N)
+		PopNodeWithMaxProbability: O(logE)
+		Inside loop: O(E)
+		UpdateCostL O(logE)
+	Space complexity: O(N + E)
+*/
+
 func maxProbability(n int, edges [][]int, succProb []float64, start int, end int) float64 {
 	table := NewTableNode(n, edges, succProb, start)
 	for {
