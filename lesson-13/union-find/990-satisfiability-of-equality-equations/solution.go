@@ -4,6 +4,15 @@ package solution
 	leetcode: https://leetcode.com/problems/satisfiability-of-equality-equations/
 */
 
+/*
+	We use union-find to merge all variable that have same value to same set.
+	Then we check variable that have different value:
+		+ same set: not correct -> return false.
+		+ not same: correct, continue to check
+
+	Time complexity: O(N)
+	Space complexity: O(26) -> O(1)
+*/
 func equationsPossible(equations []string) bool {
 	ds := NewDisjointSet()
 
