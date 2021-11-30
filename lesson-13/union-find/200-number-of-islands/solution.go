@@ -4,12 +4,23 @@ package solution
 	leetcode: https://leetcode.com/problems/number-of-islands
 */
 
+/*
+	We apply union-find with path compression.
+	Each cell "1" will be consider as a subset.
+	We try to merge subset if they are next to each other.
+	Finally, we count how many subsets in our disjoint-set.
+
+	Time complexity: O(m*n)
+		Apply  union with path compression so Find, Union, MakeSet ~ O(1)
+	Space complexity: O(m*n)
+
+*/
 func numIslands(grid [][]byte) int {
 	m := len(grid)
 	n := len(grid[0])
 
 	visited := NewVisited(grid)
-	ds := NewDisjoinSet(m, n)
+	ds := NewDisjointSet(m, n)
 	for i := 0; i < m; i++ {
 		for j := 0; j < n; j++ {
 			if isIsland(grid, i, j) && !visited[i][j] {
@@ -75,7 +86,7 @@ func canUnion(grid [][]byte, visited [][]bool, i, j int) bool {
 	return isValidIdx(grid, i, j) && isIsland(grid, i, j) && !visited[i][j]
 }
 
-func NewDisjoinSet(n, m int) *DisjointSet {
+func NewDisjointSet(n, m int) *DisjointSet {
 	parent := make([]int, n*m)
 	rank := make([]int, n*m)
 	for i := 0; i < len(parent); i++ {
