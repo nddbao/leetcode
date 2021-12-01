@@ -4,6 +4,22 @@ package solution
 	leetcode: https://leetcode.com/problems/graph-connectivity-with-threshold/
 */
 
+/*
+	We use union-find to solve this problem.
+	First, we build disjoint set from  (threshold + 1) to n.
+	We know that all multiple value of the same x in [threshold+1..n] can merge together.
+	They will connect to each other.
+	So when iterating queries, we will find two cities that have the same root or not.
+
+
+	Time complexity: O(n^2)
+		NewDisjointSet: O(n)
+		Build sets: O(n ^ 2)
+		Find result: O(n)
+
+	Space complexity: O(n)
+*/
+
 func areConnected(n int, threshold int, queries [][]int) []bool {
 	ds := NewDisjointSet(n + 1)
 	for i := threshold + 1; i <= n; i++ {
