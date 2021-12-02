@@ -4,6 +4,15 @@ package solution
 	leetcode: https://leetcode.com/problems/largest-component-size-by-common-factor/submissions/
 */
 
+/*
+	We use union-find to solve this problem.
+	We will find all factors of a number and merge it.
+	Finally, we just count number by root and choose max for result.
+
+	Time complexity: O(N * sqrt(M)) whether N is length of nums, M is maximum number in nums
+	Space complexity: O(N + M)
+*/
+
 func largestComponentSize(nums []int) int {
 	max := findMax(nums)
 	ds := NewDisjointSet(max)
