@@ -16,7 +16,7 @@ package solution
 		NewDisjointSet: O(n)
 		Build sets: O(n ^ 2)
 		Find result: O(n)
-
+k
 	Space complexity: O(n)
 */
 
