@@ -24,7 +24,7 @@ import (
 		buildAdjacentList: O(M) whether M is number of flights
 		loop to find min: k*M*log(M*k)
 
-	Space complexity: O(N*k + M)
+	Space complexity: O(M*k + N)
 
 */
 
