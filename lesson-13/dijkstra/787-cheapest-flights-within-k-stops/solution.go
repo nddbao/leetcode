@@ -9,6 +9,25 @@ import (
 	leetcode: https://leetcode.com/problems/cheapest-flights-within-k-stops/
 */
 
+/*
+	We use dijkstra to solve this.
+	We go from src to check connected flights.
+	Then we calculate the cost as well as adding (city, stop -1, cost) to min heap.
+	We will not add to min heap with some conditions:
+		+ stop <= 0
+		+ same city: ( condition: comparing by stop and cost) new one have higher value than existing one in min heap.
+
+	When we reach destination, we can update our min.
+
+	Time complexity: k*N*M*log(N*k)
+		buildCosts: O(N) whether N is number of cities
+		buildAdjacentList: O(M) whether M is number of flights
+		loop to find min: k*N*M*log(N*k)
+
+	Space complexity: O(N*k + M)
+
+*/
+
 func findCheapestPrice(n int, flights [][]int, src int, dst int, k int) int {
 	fd := NewFacade(n, flights, src, k)
 	min := math.MaxInt32
