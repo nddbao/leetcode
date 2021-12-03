@@ -19,10 +19,10 @@ import (
 
 	When we reach destination, we can update our min.
 
-	Time complexity: k*N*M*log(N*k)
+	Time complexity: k*M*log(M*k)
 		buildCosts: O(N) whether N is number of cities
 		buildAdjacentList: O(M) whether M is number of flights
-		loop to find min: k*N*M*log(N*k)
+		loop to find min: k*M*log(M*k)
 
 	Space complexity: O(N*k + M)
 
