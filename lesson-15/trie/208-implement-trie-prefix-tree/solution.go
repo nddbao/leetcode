@@ -4,6 +4,14 @@ package solution
 	leetcode: https://leetcode.com/problems/implement-trie-prefix-tree/
 */
 
+/*
+	Time & space complexity:
+		Insert: O(len(word)) time & O(1) space
+		Search: O(len(word)) time & O(1) space
+		StartsWith: O(len(key)) time & O(1) space
+
+*/
+
 type Trie struct {
 	Children []*Trie
 	IsWord   bool
