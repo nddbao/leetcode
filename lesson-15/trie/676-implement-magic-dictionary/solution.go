@@ -4,6 +4,20 @@ package solution
 	leetcode: https://leetcode.com/problems/implement-magic-dictionary/
 */
 
+/*
+	We build a trie data structure.
+	When we search a word, for example: abc
+	We try to seach *bc, a*c, ab* and character at index * != character at index in searchword
+    ==> we found the answer
+
+	Time complexity:
+		Constructor: O(1)
+		BuildDict: O( len(dictionary) * max(len(word))
+		Search: O(len(searchword) ^ 2)
+	Space complexity:
+		O(n) where n is number of character i trie.
+
+*/
 type MagicDictionary struct {
 	root *Node
 }
@@ -50,7 +64,7 @@ func (n *Node) Search(s string, skipIdx, k int) bool {
 	if skipIdx == k {
 		for i := 0; i < len(n.Children); i++ {
 			child := n.Children[i]
-			if child != nil && child.Search(s, skipIdx, k+1) && i != n.GetIndex(s[k]) {
+			if child != nil && i != n.GetIndex(s[k]) && child.Search(s, skipIdx, k+1) {
 				return true
 			}
 		} // end loop
