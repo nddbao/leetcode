@@ -4,6 +4,19 @@ package solution
 	leetcode: https://leetcode.com/problems/map-sum-pairs/
 */
 
+/*
+	We will build a trie and cache in MapSum:
+		+ Trie: will have extra sum to keep track all sum below it and its self
+		+ Cache: keep track value of key that we insert into MapSum
+
+	When inserting to Trie, we will check whether they exist or not.
+	If they exist, we will calculate difference and update.
+
+	Time complexity:
+		Sum O(len(prefix))
+		Insert O(len(key))
+	Space complexity: O(Sum(all character in keys))
+*/
 type MapSum struct {
 	trie  *Trie
 	cache map[string]int
