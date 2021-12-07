@@ -4,6 +4,16 @@ package solution
 	leetcode: https://leetcode.com/problems/longest-word-in-dictionary/
 */
 
+/*
+	We build a trie data structure to keep track all our words.
+	After that, we will travel all branch and find longest one.
+
+	Time complexity:
+		Insert O(len(word))
+		FindLongest O(All len of words)
+	Space:
+		O(all len of words)
+*/
 func longestWord(words []string) string {
 	root := &Trie{Children: make([]*Trie, 26)}
 	for _, word := range words {
