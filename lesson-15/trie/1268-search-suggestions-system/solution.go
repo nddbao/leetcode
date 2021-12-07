@@ -6,6 +6,18 @@ import "sort"
 	leetcode: https://leetcode.com/problems/search-suggestions-system/
 */
 
+/*
+	We sort products string array in order.
+	After that we build Tries that each trie will keep track start and end index in sorted Products.
+	Finally, we just search trie by searchWord.
+
+	Time complexity:
+		sort products: O(M*Nlog(N)) whether N is len of products and M is len of string
+		Insert: O(M*N)
+		Search: O(len(seachWord))
+	Space: O(M*N)
+*/
+
 func suggestedProducts(products []string, searchWord string) [][]string {
 	sort.Strings(products)
 
