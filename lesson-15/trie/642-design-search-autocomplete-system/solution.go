@@ -6,6 +6,24 @@ import "sort"
 	leetcode: https://leetcode.com/problems/design-search-autocomplete-system/
 */
 
+/*
+	We build trie data structure.
+	Each trie will keep freq times and 3 hot sentences all trie below it and itself.
+
+	In AutocompleteSystem struct, we have root trie.
+	We also need Cursor and Buff to keep track our search.
+	when input have '#', we just insert word from Buff and reset cursor and buffer.
+
+
+	Time complexity:
+		Constructor O(N*M) where N is len(sentences) and M is len of sentences[i]
+		Input: O(len(buff))
+			Insert O(len(buffer))
+				UpdateHotSentences O(1)
+			Search O(1)
+	Space complexity: O(N*M + len(buff))
+
+*/
 type AutocompleteSystem struct {
 	Root   *Trie
 	Cursor *Trie
@@ -131,7 +149,7 @@ func (h HotSentences) Len() int {
 
 func (h HotSentences) Less(i, j int) bool {
 	if h[i].Freq == h[j].Freq {
-		// sorted by asccii code (smaller to larger)
+		// sorted by ascii code (smaller to larger)
 		return h[i].Val < h[j].Val
 	}
 
