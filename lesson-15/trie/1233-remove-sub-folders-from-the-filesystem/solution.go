@@ -6,6 +6,20 @@ import "strings"
 	leetcode: https://leetcode.com/problems/remove-sub-folders-from-the-filesystem/
 */
 
+/*
+	We build trie data structure.
+	When inserting a folder to trie, if we found folder -> stop
+	When finding folder in children
+		+ if we found child is folder, just add it to result and process the other children.
+		+ otherwise, we dive deep to child of child to find.
+
+
+	Time complexity:
+		Insert: O(N*len(subpath))
+		FindFolder O(N*len(subPath))
+	Space complexity: O(K) where K is sum of len all folders
+*/
+
 func removeSubfolders(folder []string) []string {
 	root := &Trie{Children: make(map[string]*Trie)}
 	for _, v := range folder {
