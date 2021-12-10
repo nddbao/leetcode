@@ -4,6 +4,20 @@ package solution
 	leetcode: https://leetcode.com/problems/stream-of-characters/
 */
 
+/*
+	We build StreamChecker with:
+		+ Root Trie: to keep track all words (we build from end to start)
+		+ Buff: to keep track our query
+	When checking a query, we just do normal finding in trie.
+
+	Time complexity:
+		InsertReverse: len(word)
+		Find: len(all query)
+
+	Space complexity:
+		O(N + M) where N is len words and N is len of Query
+
+*/
 type StreamChecker struct {
 	root *Trie
 	buff []byte
