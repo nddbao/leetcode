@@ -4,6 +4,21 @@ package solution
 	leetcode: https://leetcode.com/problems/prefix-and-suffix-search/
 */
 
+/*
+	We build trie from list words.
+	For each word, we will insert all of its variant such as example below:
+		"abc" -> "#abc", "a#abc", "ab#abc", "abc#abc"
+	At each trie node, we will update max index.
+
+	When calling F function, we just search word with format: suffix + "#" + prefix
+
+	Time complexity:
+		Constructor: O(len(words) * (len(maxWord)^2))
+		F: O(len(prefix) + len(suffix))
+	Space complexity:
+		O(len(words) * (len(maxWord)^2))
+*/
+
 type WordFilter struct {
 	words []string
 	root  *Trie
