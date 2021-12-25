@@ -5,6 +5,12 @@ package solution
 */
 
 /*
+	We need lis (longest increasing subsequence) array to store max from index in to the end.
+	We init it with 1 and go from the end to the beginning.
+	For each iteration, we check all index after i and nums[i] < nums[j] and update lis[i]
+
+	Finally, we just find max in lis.
+
 	Time complexity: O(N^2)
 	Space complexity: O(N)
 */
