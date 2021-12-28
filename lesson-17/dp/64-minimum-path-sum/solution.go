@@ -6,6 +6,14 @@ import "math"
 	leetcode: https://leetcode.com/problems/minimum-path-sum/
 */
 
+/*
+	We apply DP to calculate in min step at each position (i, j)
+	Finally, we have min at (0, 0) when doing bottom up.
+
+	Time complexity: O(m*n)
+	Space complexity: O(m*n)
+*/
+
 func minPathSum(grid [][]int) int {
 	m, n := len(grid), len(grid[0])
 	dp := NewDP(m+1, n+1)
