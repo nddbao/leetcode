@@ -4,6 +4,13 @@ package solution
 	leetcode: https://leetcode.com/problems/uncrossed-lines/
 */
 
+/*
+	Similar to longest common subsequence.
+
+	Time complexity: O(n*m) where m is len of nums1, n is len of nums2
+	Space complexity: O(n*m)
+*/
+
 func maxUncrossedLines(nums1 []int, nums2 []int) int {
 	m := len(nums1)
 	n := len(nums2)
