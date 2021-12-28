@@ -4,6 +4,13 @@ package solution
 	leetcode: https://leetcode.com/problems/unique-paths-ii/
 */
 
+/*
+	Similar to unique-paths, but at index (i, j) that is obstacle we will set value equal to 0.
+
+	Time complexity: O(m*n)
+	Space complexity: O(m*n)
+*/
+
 func uniquePathsWithObstacles(obstacleGrid [][]int) int {
 	m, n := len(obstacleGrid), len(obstacleGrid[0])
 	if obstacleGrid[m-1][n-1] == 1 {
