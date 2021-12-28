@@ -4,6 +4,16 @@ package solution
 	leetcode: https://leetcode.com/problems/minimum-ascii-delete-sum-for-two-strings/
 */
 
+/*
+	We find longest common subsequence that have maximum ascii value.
+	After that, we compute ascii value of s1 and s2.
+	Finally, we wil have minimum ascii delete sum:
+		sumAscii(s1) - maxAsciLIS + sumAscii(s2) - maxAsciLIS
+
+	Time complexity: O(m*n) where m is len of s1, n is len of s2
+	Space complexity: O(m*n)
+*/
+
 func minimumDeleteSum(s1 string, s2 string) int {
 	m := len(s1)
 	n := len(s2)
