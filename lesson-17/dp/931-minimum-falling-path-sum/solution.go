@@ -6,6 +6,17 @@ import "math"
 	leetcode: https://leetcode.com/problems/minimum-falling-path-sum/
 */
 
+/*
+	We divide big problem into small problems.
+	To find smallest at [row i, column j], we will find smallest of:
+		[row i+1, column j-1], [row i+1, column j], [row i+1, column j+1]
+
+	Finally we just get smallest at row 0.
+
+	Time complexity: O(n^2)
+	Space complexity: O(n^2)
+*/
+
 func minFallingPathSum(matrix [][]int) int {
 	n := len(matrix)
 	dp := NewDP(n)
