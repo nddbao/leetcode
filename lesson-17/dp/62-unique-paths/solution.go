@@ -4,6 +4,15 @@ package solution
 	leetcode: https://leetcode.com/problems/unique-paths/
 */
 
+/*
+	We divide big problem into sub problem
+	The number possible unique paths at (i, j) will be:
+		dp[i][j] = dp[i+1][j] + dp[i][j+1]
+
+	Time complexity: O(m*n)
+	Space complexity: O(m*n)
+*/
+
 func uniquePaths(m int, n int) int {
 	dp := NewDP(m+1, n+1)
 	dp[m-1][n-1] = 1
