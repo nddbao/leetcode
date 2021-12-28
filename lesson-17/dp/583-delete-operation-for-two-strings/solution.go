@@ -4,6 +4,14 @@ package solution
 	leetcode: https://leetcode.com/problems/delete-operation-for-two-strings/
 */
 
+/*
+	First, we find longest common subsequence (LIS) string among word1 and word2.
+	We realize that min delete character will be:
+		len(word1) - LIS + len(word2) - LIS
+
+	Time complexity: O(n*m) where n is len of word1, m is len of word2
+	Space complexity: O(n*m)
+*/
 func minDistance(word1 string, word2 string) int {
 	m := len(word1)
 	n := len(word2)
