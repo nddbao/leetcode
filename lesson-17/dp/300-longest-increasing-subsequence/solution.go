@@ -13,6 +13,8 @@ package solution
 
 	Time complexity: O(N^2)
 	Space complexity: O(N)
+
+	TODO: try for O(NlogN)
 */
 func lengthOfLIS(nums []int) int {
 	n := len(nums)
